@@ -27,11 +27,13 @@ class HomeLoan {
 // new instance
 var myHouse = new HomeLoan()
 console.log(myHouse.debt);
+
 myHouse.makePayment()
 myHouse.makePayment()
 myHouse.makePayment()
 myHouse.makePayment()
 myHouse.makePayment()
+
 console.log("My house " + myHouse.debt);
 
 // classes are reusable
@@ -61,6 +63,7 @@ jakobsHouse.makePayment()
 jakobsHouse.missPayment()
 miguelsHouse.makePayment()
 tripsHouse.makePayment()
+
 console.log(loanArray);
 
 var showInfo = loanArray.map(value => {
