@@ -1,0 +1,71 @@
+<!-- Intro to React and Nested Components -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Script tatgs that bring in React dependencies -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Intro to React</title>
+
+  </head>
+  <body>
+    <!-- The div that renders the React component -->
+    <div id="react-container"></div>
+
+    <!-- A script tag that holds the React component JavaScript code -->
+    <script type="text/babel">
+
+
+      // React class component
+      class HelloReact extends React.Component{
+
+        // every React class component must have a render
+        // render is a built in method for React
+        render(){
+
+          // returning JSX
+          return(
+            // All the JSX must be wrapped in a single tag
+            <div>
+              // Calling the Header component
+              <Header />
+              <h3>Hello React!</h3>
+              // Calling the button component
+              <Button />
+              <p>Hello Charlie class!!!</p>
+              <p>How are you?!!</p>
+              <Button />
+            </div>
+          )
+        }
+      }
+
+      // Additional React components rendered by the main component
+      class Header extends React.Component{
+        render(){
+          return(
+            <>
+              <h1>Hello World</h1>
+            </>
+          )
+        }
+      }
+
+      class Button extends React.Component{
+        render(){
+          return(
+            <button>Here is a button</button>
+          )
+        }
+      }
+
+
+
+      const domContainer = document.querySelector('#react-container');
+      ReactDOM.render(<HelloReact />, domContainer);
+    </script>
+  </body>
+</html>
