@@ -90,7 +90,6 @@ class AutoLoan extends Loan {
     // super() passes the attributes from the parent class
     super()
     this.debt = 10000
-    this.interest = 13
   }
 
   refinance() {
