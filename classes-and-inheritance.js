@@ -6,7 +6,7 @@
 // this: a JavaScript keyword that refers to the object it belongs to
 // new: creating a new instance of a class (aka a tangible object)
 
-PascalCase
+// PascalCase
 class HomeLoan {
   // constructors can have arguments
   constructor(string, social, dueDate = "1st") {
