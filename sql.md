@@ -2,7 +2,7 @@
 
 ## Intro
 
-Sql is short for Structured Query Language and is an old language! It behaves differently than other languages we have learned so far including syntax and structure. It was made by some super math nerds so just know that going in.
+Sql is short for Structured Query Language and is an old language! It behaves differently than other languages we have learned so far including syntax and structure.
 
 JS curly braces came from SQL. Do/end in Ruby came from Perl. If statements, which both have come from even older programming languages. So we see a gradual evolution of languages through time. However, SQL is the weird unicorn that doesn't fall into these rules.
 
