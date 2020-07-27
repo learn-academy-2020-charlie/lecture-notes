@@ -41,8 +41,6 @@ _create a new table to link people to books_
 - We understand why it's called relations
 - We have a way to visualize what a model is (excel)
 
-# BREAK
-
 ## Postgres
 
 So Postgresql or Postgres is one sort of SQL. Let's talk about querying. Querying is simply asking the DB a question, with the hopes of getting the information we want back. Queries are important because we want to have a way to receive specific information from our database based on certain parameters.
@@ -51,9 +49,8 @@ If I have my giant spreadsheet of information, that's great. But I need a way th
 
 For example, if I was going to cook dinner, I'm not going to pull every item out of my fridge and cabinets, then go searching through that pile to find my ingredients. I have a set of internal instructions to fetch the necessary items.
 
-_check to make sure everyone has postgres_
-
 _go into terminal and open up psql_
+
 - Initially, it'll throw and error. Don't freak out. Postgres is looking for a database in your computer with the same name as your username. It's looking for a database called "rachael."
 - Just type psql + the name of the database you're looking to query
 - Dump using \d
