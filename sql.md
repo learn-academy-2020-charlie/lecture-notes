@@ -73,123 +73,149 @@ _go into schema/tables/country/columns to see pieces of the table_
 
 Above, we used `select *`. But what if we don't want to select the entire DB? Hint: you probably don't want to do that. You can specify certain columns after the key word `select`.
 
-`SELECT name, continent, region
-FROM country`
+```sql
+SELECT name, continent, region
+FROM country
+```
 
 ### WHERE
 
 Let's get more specific! Using a `where` clause after the name of the db we are querying, we can add more specificity.
 
-`SELECT name, continent, region, lifeexpectancy
+```sql
+SELECT name, continent, region, lifeexpectancy
 FROM country
-where lifeexpectancy < 50`
+where lifeexpectancy < 50
+```
 
 ### IN
 
 Another way to be more specific is with `IN`. `IN` refers to a set of values.
 
-`SELECT name, population, governmentform
+```sql
+SELECT name, population, governmentform
 FROM country
 WHERE governmentform
-IN ('Republic', 'Monarchy')`
+IN ('Republic', 'Monarchy')
+```
 
 ### LIKE
 
 Use the `LIKE` operator when you're trying to return data that is similar. Here, a `%` is sort of like a wild card that can represent any character.
 
-`SELECT name, population, governmentform
+```sql
+SELECT name, population, governmentform
 FROM country
 WHERE governmentform
-LIKE '%onarchy'`
+LIKE '%onarchy'
+```
 
 ### NOT
 
 Use `NOT` to keep certain rows from appearing in your query, while `AND` allows you to add another perameter to your search.
 
-`SELECT name, continent, region, lifeexpectancy
+```sql
+SELECT name, continent, region, lifeexpectancy
 FROM country
 WHERE
 NOT(continent='North America')
-AND lifeexpectancy > 50`
+AND lifeexpectancy > 50
+```
 
-`SELECT name, continent, indepyear
+```sql
+SELECT name, continent, indepyear
 FROM country
 WHERE indepyear >= -2000
-AND indepyear <= 1099`
+AND indepyear <= 1099
+```
 
 ### OR
 
 `OR` allows for a more broad search, allowing multiple conditions to be met.
 
-`SELECT code, name, population, gnp
+```sql
+SELECT code, name, population, gnp
 FROM country
 WHERE population > 1e+8
-OR gnp > 1e+6`
+OR gnp > 1e+6
+```
 
 ### BETWEEN
 
 Another keyword you can use is `BETWEEN`.
 
-`SELECT name, population
+```sql
+SELECT name, population
 FROM country
 WHERE population
 BETWEEN 250000
-AND 500000`
+AND 500000
+```
 
 ### ORDER BY
 
 Let's use an example from above and put the data into a specific order that would be easy for human eyes to read using `ORDER BY`.
 
-`SELECT name, continent, indepyear
+```sql
+SELECT name, continent, indepyear
 FROM country
 WHERE indepyear >= -2000
 AND indepyear <= 1099
-ORDER BY indepyear`
+ORDER BY indepyear
+```
 
 Now let's flip it on it's head and reverse the order
 
 ### DESC
 
-`SELECT name, continent, indepyear
+```sql
+SELECT name, continent, indepyear
 FROM country
 WHERE indepyear >= -2000
 AND indepyear <= 1099
-ORDER BY indepyear DESC`
+ORDER BY indepyear DESC
+```
 
 ### LIMIT
 
 Maybe we don't want every single item, we just want say, the top 3 of a group, from oldest to newest.
 
-`SELECT name, continent, indepyear
+```sql
+SELECT name, continent, indepyear
 FROM country
 WHERE indepyear >= -2000
 AND indepyear <= 1099
 ORDER BY indepyear
-LIMIT 3`
+LIMIT 3
+```
 
 ### AS
 
 `AS` creates an alias for an additional column that will show up in your query results.
 Think of it like a variable that will house a specific set of information. The alias will be another selection!
 
-`SELECT name, surfacearea, population,
+```sql
+SELECT name, surfacearea, population,
 population / surfacearea AS people_per_mile
 FROM country
 WHERE population >  
 ORDER BY people_per_mile DESC
-LIMIT 10`
+LIMIT 10
+```
 
 ### WITH
 `WITH` is similar to `AS` but it creates an alias for your `SELECT` statement.
 
-`WITH high_life_expectancy_countries AS (
+```sql
+WITH high_life_expectancy_countries AS (
   SELECT name, lifeexpectancy, gnp
   FROM country
   WHERE lifeexpectancy > 70
   )
 SELECT name, lifeexpectancy, gnp
 FROM high_life_expectancy_countries
-ORDER BY lifeexpectancy DESC`
+ORDER BY lifeexpectancy DESC
+```
 
 ### NULL
 
@@ -197,7 +223,8 @@ Null means "no value"!! Null is the absence of a value, meaning it is equal to n
 
 When we select all folrm country, we can see some null values. Let's see how we can account for those.
 
-`SELECT name, indepyear
+```sql
+SELECT name, indepyear
 FROM country
 WHERE indepyear IS NOT NULL
 ORDER BY indepyear`
@@ -205,35 +232,46 @@ ORDER BY indepyear`
 `SELECT name, indepyear
 FROM country
 WHERE indepyear IS NULL
-ORDER BY indepyear`
+ORDER BY indepyear
+```
 
 ### AGGREGATE FUNCTIONS
 
 Aggregate functions do exactly that, aggregate information.
 
-`SELECT SUM(population)
-FROM country;`
+```sql
+SELECT SUM(population)
+FROM country
+```
 
-`SELECT SUM(surfacearea)
-FROM country;`
+```sql
+SELECT SUM(surfacearea)
+FROM country
+```
 
-`SELECT language, COUNT(*)
+```sql
+SELECT language, COUNT(*)
 FROM countrylanguage
 GROUP BY language
 ORDER BY count DESC
-LIMIT 5`
+LIMIT 5
+```
 
 ### GROUP BY
 
 Above, you see that we used `GROUP BY`. That will group together rows that have the same data. It can either be used in the SELECT or in funcitons like we see above like COUNT or AVG.
 
-`SELECT region, AVG(lifeexpectancy)
+```sql
+SELECT region, AVG(lifeexpectancy)
 FROM country
-GROUP BY region`
+GROUP BY region
+```
 
 Here we can see how many countries are in a particular region using COUNT and GROUP BY.
 
-`SELECT region, COUNT(name)
+```sql
+SELECT region, COUNT(name)
 FROM country
 WHERE region='South America'
-GROUP BY region`
+GROUP BY region
+```
