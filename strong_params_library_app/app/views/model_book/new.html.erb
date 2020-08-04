@@ -1,0 +1,10 @@
+<%# The name attribute of our inputs will be different. We will first give the name of our model/class followed by the name of the column in square brackets %>
+<%= form_with url: "/model_book", local: true do %>
+  <label for="Title">Title:</label>
+  <input id="title" name="book[title]">
+  <label for="author">Author:</label>
+  <input id="author" name="book[author]">
+  <label for="check_out_date">Date Checked Out:</label>
+  <input id="check_out_date" name="book[check_out_date]">
+  <input type="submit" value="Check Out Book">
+<% end %>
